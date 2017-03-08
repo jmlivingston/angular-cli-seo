@@ -1,8 +1,18 @@
-# AngularCliSeo
+# Setup Steps
+
+- Create new angular-cli project.
+- Add express package
+- Create server/app.js with boilerplate code.
+- Change ng build to ng build --output-path server/dist
+- Run node ./server/app.js
+
+
+## AngularCliSeo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
 
 ## Development server
+
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
 ## Code scaffolding
