@@ -43,10 +43,6 @@
 
 - `git subtree push --prefix server heroku master`
 
-
-
->>>>>>> 6bb43535641e33ecde8816922d588079e7fa4d2b
-
 ## AngularCliSeo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
