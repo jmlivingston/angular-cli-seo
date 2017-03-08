@@ -3,9 +3,24 @@
 - Create new angular-cli project.
 - Add express package
 - Create server/app.js with boilerplate code.
-- Change ng build to ng build --output-path server/dist
 - Run node ./server/app.js
 
+## Heroku Install
+
+[Heroku Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
+
+## Setup Base Project
+
+- Create server folder
+- Create all the npm scripts for deployment
+
+## Setup Heroku Project for Deployment
+
+- Create angular-cli-seo-heroku at same level
+- `brew install heroku`
+- `heroku login`
+- `heroku create` OR git clone from heroku remote
+- `heroku buildpacks:set heroku/nodejs`
 
 ## AngularCliSeo
 

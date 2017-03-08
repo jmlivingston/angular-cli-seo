@@ -5,7 +5,7 @@ app.use(express.static(__dirname + '/dist'));
 app.get('/', function (req, res) {
     res.sendfile(__dirname + "/dist/index.htm");
 });
-var port = process.env.PORT || 3080;
+var port = process.env.PORT || 5200;
 app.listen(port, function () {
     console.log('Listening on port ' + port);
 });
