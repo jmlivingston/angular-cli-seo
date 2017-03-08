@@ -22,6 +22,31 @@
 - `heroku create` OR git clone from heroku remote
 - `heroku buildpacks:set heroku/nodejs`
 
+
+```json
+{
+    "name": "angular-cli-seo",
+    "version": "0.0.0",
+    "engines": {
+        "node": "7.2.1"
+    },
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "ejs": "2.4.1",
+        "express": "4.15.2"
+    }
+}
+```
+
+- `git subtree push --prefix server heroku master`
+
+
+
+>>>>>>> 6bb43535641e33ecde8816922d588079e7fa4d2b
+
 ## AngularCliSeo
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
