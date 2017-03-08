@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "angular-cli-seo",
   "version": "0.0.0",
   "license": "MIT",
@@ -7,20 +6,7 @@
     "express": "^4.15.2"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node server.js",
     "postinstall": "npm install express"
   }
 }
-=======
-    "name": "angular-cli-seo",
-    "version": "0.0.0",
-    "engines": {
-        "node": "6.9.4"
-    },
-    "main": "server.js",
-    "scripts": {
-        "start": "node ./server.js",
-        "postinstall": "npm install express"
-    }
-}
->>>>>>> 6bb43535641e33ecde8816922d588079e7fa4d2b
