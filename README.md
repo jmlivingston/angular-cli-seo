@@ -6,6 +6,39 @@
 - Change ng build to ng build --output-path server/dist
 - Run node ./server/app.js
 
+# Heroku
+
+[Heroku Node Intro](https://devcenter.heroku.com/articles/getting-started-with-nodejs#introduction)
+
+- `brew install heroku`
+- `heroku login`
+- `git remote add heroku https://git.heroku.com/angular-cli-seo.git`
+- `heroku buildpacks:set heroku/json`
+- Add Procfile
+- Add package.json
+
+```json
+{
+    "name": "angular-cli-seo",
+    "version": "0.0.0",
+    "engines": {
+        "node": "7.2.1"
+    },
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "dependencies": {
+        "ejs": "2.4.1",
+        "express": "4.15.2"
+    }
+}
+```
+
+- `git subtree push --prefix server heroku master`
+
+
+
 
 ## AngularCliSeo
 
