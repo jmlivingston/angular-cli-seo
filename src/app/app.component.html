@@ -1,3 +1,28 @@
+<div>
+  <h1>ExpressJS SEO example</h1>
+  <h3>Uses the following technologies to ensure</h3>
+  <ul>
+    <li>Node</li>
+    <li>ExpressJS</li>
+    <li>Handlebars</li>
+  </ul>
+  <h3>Open up your browser dev tool, try a different route and see what you get in your &lt;head&gt; &lt;meta&gt; tags</h3>
+  <ul>
+    <li>
+      <a routerLink="/">/ - default SEO data</a>
+    </li>
+    <li>
+      <a routerLink="/page-one">/page1</a>
+    </li>
+    <li>
+      <a routerLink="/page-two">/page2</a>
+    </li>
+    <li>
+      <a routerLink="/page-three">/page3 - no SEO data, reverts to default</a>
+    </li>
+  </ul>
+</div>
+
 <h1>
-  {{title}}
+  <router-outlet></router-outlet>
 </h1>

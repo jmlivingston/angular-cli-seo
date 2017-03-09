@@ -1,0 +1,20 @@
+{
+    "default": {
+        "title": "Express SEO example default",
+        "description": "This shows how you can ensure SEO default",
+        "keywords": "This, that, and the other default",
+        "author": "John Livingston default"
+    },
+    "page-one": {
+        "title": "Express SEO example - page 1",
+        "description": "This shows how you can ensure SEO - page 1",
+        "keywords": "This, that, and the other - page 1",
+        "author": "John Livingston - page 1"
+    },
+    "page-two": {
+        "title": "Express SEO example - page 2",
+        "description": "This shows how you can ensure SEO - page 2",
+        "keywords": "This, that, and the other - page 2",
+        "author": "John Livingston - page 2"
+    }
+}
