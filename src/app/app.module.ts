@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { PageOneComponent } from './page-one/page-one.component';
 import { PageTwoComponent } from './page-two/page-two.component';
 import { PageThreeComponent } from './page-three/page-three.component';
+import { SeoService } from './seo/shared/seo.service';
 
 const routes: Routes = [
   { path: 'page-one', component: PageOneComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
     HttpModule,
     RouterModule.forRoot(routes)
   ],
-  providers: [],
+  providers: [SeoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
