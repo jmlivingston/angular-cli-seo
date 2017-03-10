@@ -3,14 +3,16 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "ng": "ng",
-    "start": "webpack-dev-server",
+    "start-dev": "webpack-dev-server --config ./webpack-dev.config.js",
+    "start-prod": "webpack-dev-server --config ./webpack-prod.config.js",
+
     "start-server": "cd ./server && npm start && cd ..",
     "start-deploy-server": "cd ../angular-cli-seo-heroku && npm start && cd ../angular-cli-seo",
     "deploy-clean": "rm -rf server/dist && rm -rf ../angular-cli-seo-heroku/dist",
     "deploy-copy": "cp -R ./dist ./server && cp -R ./server/ ../angular-cli-seo-heroku",
     "deploy-git": "cd ../angular-cli-seo-heroku && git add -A && git commit -m 'upated' && git push origin master && cd ../angular-cli-seo",
     "deploy": "npm run build-prod && npm run deploy-clean && npm run deploy-copy && npm run deploy-git",
+    
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
