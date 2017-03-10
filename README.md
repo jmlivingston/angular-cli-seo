@@ -1,51 +1,48 @@
-# Setup Steps
+# Angular CLI SEO
 
-- Create new angular-cli project.
-- Add express package
-- Create server/app.js with boilerplate code.
-- Run node ./server/app.js
+## Summary
 
-## Heroku Install
+This repository provides a pattern for adding SEO features to a SPA based application like Angular, though you could use the same techniques for React, Vue, etc. Search engines like Google and Bing and social media sites like Facebook, Twitter, and LinkedIn typically expect server side rendering to read meta tags. You also need to update the meta tags when routing changes on the client side since some social sharing components rely on them.
 
-[Heroku Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
+## High Level Steps
 
-## Setup Base Project
+- Initial Steps
 
-- Create server folder
-- Create all the npm scripts for deployment
+  - Create new angular-cli project.
+  - Run `ng eject` to get Webpack config. (You can run it twice for a prod and dev build. The trick is renaming the file, undoing your other changes, then running again. For prod, use `ng eject --aot --environment=prod`)
+
+- Server Steps
+
+  - Create a server folder. This will be used to host a node app. (This can be used to copy and push to a host like Heroku.)
+  - Create a package.json at this level for source control and package management.
+  - Use npm to install the following
+    - express - node web app
+    - express-handlebars - templating
+    - yargs - argument handling
+  - Create server/server.js with some Express boilerplate code.
+  - Create seo.json for your SEO configuration and seo.js for adding SEO API and routing.
+  - Add templates to handle updating the title and meta tags
+
+- Complete Client Steps
+
+  - Update your Webpack config settings to use the Express app.
+  - Create an SEO service to read from api/seo and update the title and meta tags on route changes.
+  - Update the index.html so that it has `{{{body}}}` in the header. Handlebars will use this to inject the meta tags.
 
 ## Setup Heroku Project for Deployment
 
-- Create angular-cli-seo-heroku at same level
+[Heroku Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
+
+- Create heroku git repo at same level. In my case, I used angular-cli-seo-heroku.  Tweak name in package.json for something different.
 - `brew install heroku`
 - `heroku login`
 - `heroku create` OR git clone from heroku remote
 - `heroku buildpacks:set heroku/nodejs`
 
 
-```json
-{
-    "name": "angular-cli-seo",
-    "version": "0.0.0",
-    "engines": {
-        "node": "7.2.1"
-    },
-    "main": "app.js",
-    "scripts": {
-        "start": "node app.js"
-    },
-    "dependencies": {
-        "ejs": "2.4.1",
-        "express": "4.15.2"
-    }
-}
-```
+## Angular CLI
 
-- `git subtree push --prefix server heroku master`
-
-## AngularCliSeo
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.0.
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli)
 
 ## Development server
 

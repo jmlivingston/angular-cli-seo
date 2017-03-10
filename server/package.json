@@ -11,6 +11,5 @@
     "start": "node server.js --prod",
     "debug": "nodemon server.js --prod",
     "postinstall": "npm install express express-handlebars yargs"
-  },
-  "devDependencies": {}
+  }
 }

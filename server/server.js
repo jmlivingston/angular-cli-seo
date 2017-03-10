@@ -7,19 +7,18 @@ const app = express();
 function initialize(app) {
     app.engine('handlebars', expressHandlebars({
         layoutsDir: __dirname,
-        defaultLayout: argv.prod ? 'index' : '../src/index-dev',
+        defaultLayout: __dirname + '/client/index',
         extname: '.html'
     }));    
 
     app.set('view engine', 'handlebars');
-
     app.set('views', __dirname + '/views');
 
     app.get('/', function (req, res) {
         seo.render(req, res);
     });
 
-    app.use(express.static(argv.prod ? __dirname + '/dist' : __dirname + '/../src'));
+    app.use(express.static(argv.prod ? __dirname + '/client' : __dirname + '/../src'));
 
     seo.initialize(app);
 
@@ -32,7 +31,7 @@ function initialize(app) {
     });
 
     if (argv.prod) {
-        const port = process.env.PORT || 5200;
+        const port = process.env.PORT || 8080;
         app.listen(port, function () {
             console.log('Listening on port ' + port);
         });
