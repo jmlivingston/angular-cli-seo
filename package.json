@@ -7,7 +7,6 @@
     "start": "webpack-dev-server",
     "start-server": "cd ./server && npm start && cd ..",
     "start-deploy-server": "cd ../angular-cli-seo-heroku && npm start && cd ../angular-cli-seo",
-    // "build-prod": "ng build --aot --prod --environment=prod",
     "deploy-clean": "rm -rf server/dist && rm -rf ../angular-cli-seo-heroku/dist",
     "deploy-copy": "cp -R ./dist ./server && cp -R ./server/ ../angular-cli-seo-heroku",
     "deploy-git": "cd ../angular-cli-seo-heroku && git add -A && git commit -m 'upated' && git push origin master && cd ../angular-cli-seo",
@@ -15,8 +14,8 @@
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
-    "build-prod": "webpack --config ./webpack-prod.config.js",
-    "build-dev": "webpack --config ./webpack-dev.config.js",
+    "build-prod": "webpack --config webpack-prod.config.js",
+    "build-dev": "webpack --config webpack-dev.config.js",
     "pree2e": "webdriver-manager update --standalone false --gecko false --quiet"
   },
   "private": true,
