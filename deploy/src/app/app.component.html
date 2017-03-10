@@ -1,0 +1,37 @@
+<h1>SPA SEO example - <a href="https://github.com/jmlivingston/angular-cli-seo" target="new">GitHub</a></h1>
+<hr />
+<h3>Technologies</h3>
+<ul>
+  <li>Angular (Same approach can be used with React and Vue.)</li>
+  <li>Node</li>
+  <li>ExpressJS</li>
+  <li>Handlebars</li>
+  <li>WebPack</li>
+</ul>
+<hr />
+<h4>Instructions</h4>
+<p>Open browser dev tools, refresh or click a link to see changes in &lt;head&gt; &lt;meta&gt; tags</p>
+<ul>
+  <li>
+    <a routerLink="/">/ - default</a>
+  </li>
+  <li>
+    <a routerLink="/page-one">/page1</a>
+  </li>
+  <li>
+    <a routerLink="/page-two">/page2</a>
+  </li>
+  <li>
+    <a routerLink="/page-three">/page3 - no SEO data, reverts to default</a>
+  </li>
+</ul>
+<hr />
+<h4>Client</h4>
+<p>Changes during client side routing change. Calls api/seo API</p>
+<pre><code>{{seo?.title}}</code></pre>
+<router-outlet></router-outlet>
+<hr />
+<h4>Server</h4>
+<p>Populates on intial load or refresh</p>
+<!-- See index.html to see data-binding in Handlebars -->
+<h4><a href="https://github.com/jmlivingston/angular-cli-seo" target="new">GitHub - jmlivingston/angular-cli-seo</a></h4>
