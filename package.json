@@ -4,17 +4,20 @@
   "license": "MIT",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "webpack-dev-server",
     "start-server": "cd ./server && npm start && cd ..",
     "start-deploy-server": "cd ../angular-cli-seo-heroku && npm start && cd ../angular-cli-seo",
-    "build-prod": "ng build --aot --prod --environment=prod",
+    // "build-prod": "ng build --aot --prod --environment=prod",
     "deploy-clean": "rm -rf server/dist && rm -rf ../angular-cli-seo-heroku/dist",
     "deploy-copy": "cp -R ./dist ./server && cp -R ./server/ ../angular-cli-seo-heroku",
     "deploy-git": "cd ../angular-cli-seo-heroku && git add -A && git commit -m 'upated' && git push origin master && cd ../angular-cli-seo",
     "deploy": "npm run build-prod && npm run deploy-clean && npm run deploy-copy && npm run deploy-git",
-    "test": "ng test",
+    "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "protractor ./protractor.conf.js",
+    "build-prod": "webpack --config ./webpack-prod.config.js",
+    "build-dev": "webpack --config ./webpack-dev.config.js",
+    "pree2e": "webdriver-manager update --standalone false --gecko false --quiet"
   },
   "private": true,
   "dependencies": {
@@ -29,6 +32,7 @@
     "core-js": "^2.4.1",
     "express": "^4.15.2",
     "rxjs": "^5.1.0",
+    "yargs": "^7.0.1",
     "zone.js": "^0.7.6"
   },
   "devDependencies": {
@@ -48,6 +52,25 @@
     "protractor": "~5.1.0",
     "ts-node": "~2.0.0",
     "tslint": "~4.4.2",
-    "typescript": "~2.0.0"
+    "typescript": "~2.0.0",
+    "webpack-dev-server": "~2.3.0",
+    "autoprefixer": "^6.5.3",
+    "css-loader": "^0.26.1",
+    "cssnano": "^3.10.0",
+    "exports-loader": "^0.6.3",
+    "file-loader": "^0.10.0",
+    "json-loader": "^0.5.4",
+    "karma-sourcemap-loader": "^0.3.7",
+    "less-loader": "^2.2.3",
+    "postcss-loader": "^0.13.0",
+    "postcss-url": "^5.1.2",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^4.1.1",
+    "script-loader": "^0.7.0",
+    "source-map-loader": "^0.1.5",
+    "istanbul-instrumenter-loader": "^2.0.0",
+    "style-loader": "^0.13.1",
+    "stylus-loader": "^2.4.0",
+    "url-loader": "^0.5.7"
   }
 }

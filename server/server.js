@@ -1,57 +1,48 @@
-var express = require('express');
-var expressHandlebars = require('express-handlebars');
-var seoConfig = require('./seo.json');
+const express = require('express');
+const expressHandlebars = require('express-handlebars');
+const seo = require('./seo.js');
+const argv = require('yargs').default('prod', false).argv;
+const app = express();
 
-var app = express();
-app.engine('handlebars', expressHandlebars({
-    layoutsDir: '',
-    defaultLayout: 'index',
-    extname: '.html'
-}));
-app.set('view engine', 'handlebars');
+function initialize(app) {
+    app.engine('handlebars', expressHandlebars({
+        layoutsDir: __dirname,
+        defaultLayout: argv.prod ? 'index' : '../src/index-dev',
+        extname: '.html'
+    }));    
 
-var path = require('path');
+    app.set('view engine', 'handlebars');
 
-function getSeo(res, req) {
-    var seo = {
-        author: 'John Doe',
-        description: 'Another website about an unknown traveler.',
-        fbAppId: '123123123123',
-        googleSiteVerification: '123123123123',
-        image: '/assets/images/logo.jpg',
-        keywords: 'man, website, unknown, traveler',
-        msValidate: '1231231231232',
-        siteName: 'johndoe.com',
-        title: 'john doe - the unknown man',
-        type: 'article',
-        url: req.protocol + ':// ' + req.headers.host + req.url
-    };
-    var path = req.headers.referer ? req.headers.referer.split('/')[3] : req.path.replace('/', '');
-    seo.title = seoConfig[path] ? seoConfig[path].title : seoConfig.default.title;
-    return seo;
+    app.set('views', __dirname + '/views');
+
+    app.get('/', function (req, res) {
+        seo.render(req, res);
+    });
+
+    app.use(express.static(argv.prod ? __dirname + '/dist' : __dirname + '/../src'));
+
+    seo.initialize(app);
+
+    app.get('/*', function (req, res, next) {
+        if (req.path.indexOf('.js') === -1 && req.path.indexOf('.js.map') === -1 && req.path.indexOf('/api/') === -1) {
+            seo.render(req, res);
+        } else {
+            next();
+        }
+    });
+
+    if (argv.prod) {
+        const port = process.env.PORT || 5200;
+        app.listen(port, function () {
+            console.log('Listening on port ' + port);
+        });
+    }
 }
 
-app.get('/', function (req, res) {
-    res.render('index', {
-        seo: getSeo(res, req)
-    });
-});
+if (argv.prod) {
+    initialize(app);
+}
 
-app.get('/api/seo', function (req, res) {
-    res.header("Access-Control-Allow-Origin", "*");
-    res.setHeader('Content-Type', 'application/json');
-    res.send(getSeo(res, req));
-});
-
-app.use(express.static(__dirname + '/dist'));
-
-app.get('/*', function (req, res) {
-    res.render('index', {
-        seo: getSeo(res, req)
-    });
-});
-
-var port = process.env.PORT || 5200;
-app.listen(port, function () {
-    console.log('Listening on port ' + port);
-});
+module.exports = {
+    initialize: initialize
+}

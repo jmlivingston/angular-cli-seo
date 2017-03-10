@@ -1,28 +1,34 @@
-<div>
-  <h1>ExpressJS SEO example</h1>
-  <h3>Uses the following technologies to ensure</h3>
-  <ul>
-    <li>Node</li>
-    <li>ExpressJS</li>
-    <li>Handlebars</li>
-  </ul>
-  <h3>Open up your browser dev tool, try a different route and see what you get in your &lt;head&gt; &lt;meta&gt; tags</h3>
-  <ul>
-    <li>
-      <a routerLink="/">/ - default SEO data</a>
-    </li>
-    <li>
-      <a routerLink="/page-one">/page1</a>
-    </li>
-    <li>
-      <a routerLink="/page-two">/page2</a>
-    </li>
-    <li>
-      <a routerLink="/page-three">/page3 - no SEO data, reverts to default</a>
-    </li>
-  </ul>
-</div>
-<pre><code>{{seo | json}}</code></pre>
-<h1>
-  <router-outlet></router-outlet>
-</h1>
+<h1>ExpressJS SEO example</h1>
+<hr />
+<h3>Technologies</h3>
+<ul>
+  <li>Node</li>
+  <li>ExpressJS</li>
+  <li>Handlebars</li>
+</ul>
+<hr />
+<h4>Instructions</h4>
+<p>Open browser dev tools, refresh or click a link to see changes in &lt;head&gt; &lt;meta&gt; tags</p>
+<ul>
+  <li>
+    <a routerLink="/">/ - default</a>
+  </li>
+  <li>
+    <a routerLink="/page-one">/page1</a>
+  </li>
+  <li>
+    <a routerLink="/page-two">/page2</a>
+  </li>
+  <li>
+    <a routerLink="/page-three">/page3 - no SEO data, reverts to default</a>
+  </li>
+</ul>
+<hr />
+<h4>Client</h4>
+<p>Changes during client side routing change. Calls api/seo API</p>
+<pre><code>{{seo?.title}}</code></pre>
+<router-outlet></router-outlet>
+<hr />
+<h4>Server</h4>
+<p>Populates on intial load or refresh</p>
+<!-- See index.html to see data-binding in Handlebars -->
