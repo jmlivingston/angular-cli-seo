@@ -7,7 +7,7 @@ const app = express();
 function initialize(app) {
     app.engine('handlebars', expressHandlebars({
         layoutsDir: __dirname,
-        defaultLayout: __dirname + '/client/index',
+        defaultLayout: __dirname + '/../client/index',
         extname: '.html'
     }));    
 
@@ -18,7 +18,7 @@ function initialize(app) {
         seo.render(req, res);
     });
 
-    app.use(express.static(argv.prod ? __dirname + '/client' : __dirname + '/../src'));
+    app.use(express.static(argv.prod ? __dirname + '/../client' : __dirname + '/../../src'));
 
     seo.initialize(app);
 

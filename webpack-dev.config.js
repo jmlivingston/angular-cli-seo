@@ -15,7 +15,7 @@ const entryPoints = ["inline", "polyfills", "sw-register", "styles", "vendor", "
 const baseHref = undefined;
 const deployUrl = undefined;
 
-const nodeServer = require('./server/server.js');
+const nodeServer = require('./dist/server/app.js');
 
 module.exports = {
   "devtool": "source-map",  
@@ -50,7 +50,7 @@ module.exports = {
     ]
   },
   "output": {
-    "path": path.join(process.cwd(), "server", "client"),
+    "path": path.join(process.cwd(), "dist", "client"),
     "filename": "[name].bundle.js",
     "chunkFilename": "[id].chunk.js"
   },

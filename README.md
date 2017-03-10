@@ -13,19 +13,20 @@ This repository provides a pattern for adding SEO features to a SPA based applic
 
 - Server Steps
 
-  - Create a server folder. This will be used to host a node app. (This can be used to copy and push to a host like Heroku.)
+  - Create a dist/server folder. This will be used to host a node app. (This can be used to copy and push to a host like Heroku.)
   - Create a package.json at this level for source control and package management.
   - Use npm to install the following
     - express - node web app
     - express-handlebars - templating
     - yargs - argument handling
-  - Create server/server.js with some Express boilerplate code.
+  - Create dist/server/app.js with some Express boilerplate code.
   - Create seo.json for your SEO configuration and seo.js for adding SEO API and routing.
   - Add templates to handle updating the title and meta tags
 
 - Complete Client Steps
 
   - Update your Webpack config settings to use the Express app.
+  - Update your build scripts to output to dist/client instead of dist.
   - Create an SEO service to read from api/seo and update the title and meta tags on route changes.
   - Update the index.html so that it has `{{{body}}}` in the header. Handlebars will use this to inject the meta tags.
 

@@ -8,8 +8,8 @@
     "yargs": "^7.0.1"
   },
   "scripts": {
-    "start": "node server.js --prod",
-    "debug": "nodemon server.js --prod",
+    "start": "node ./server/app.js --prod",
+    "debug": "nodemon ./server/app.js --prod",
     "postinstall": "npm install express express-handlebars yargs"
   }
 }
