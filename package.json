@@ -1,5 +1,6 @@
 {
   "name": "angular-cli-seo",
+  "description": "This repository provides a pattern for adding SEO features to SPA based applications.",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
