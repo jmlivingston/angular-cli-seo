@@ -5,19 +5,13 @@
   "license": "MIT",
   "scripts": {
     "start-dev": "npm run build-dev && webpack-dev-server --config ./webpack-dev.config.js",
-    "start-node": "cd ./server && npm run debug && cd ..",
+    "start-node": "cd ./dist && npm run debug && cd ..",
     "start-node-dev": "npm run build-dev && npm run start-node",
     "start-node-prod": "npm run build-prod && npm run start-node",
-    "build-clean": "rm -rf ./server/client",
+    "build-clean": "rm -rf ./dist/client",
     "build-prod": "npm run build-clean && webpack --config webpack-prod.config.js",
     "build-dev": "npm run build-clean && webpack --config webpack-dev.config.js",
-    "deploy-server": "git subtree push --prefix server origin deploy",
-
-    "deploy-clean": "rm -rf ../angular-cli-seo-heroku/client",
-    "deploy-copy": "cp -R ./server/ ../angular-cli-seo-heroku",
-    "deploy-git": "cd ../angular-cli-seo-heroku && git add -A && git commit -m 'updated' && git push origin master && cd ../angular-cli-seo",
-    "deploy": "npm run build-prod && npm run deploy-clean && npm run deploy-copy && npm run deploy-git",
-    
+    "deploy": "git subtree push --prefix dist origin deploy",   
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
