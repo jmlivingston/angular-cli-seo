@@ -25,6 +25,7 @@ This repository provides a pattern for adding SEO features to a SPA based applic
 
 - Complete Client Steps
 
+  - Add the following npm packages `npm install open rimraf webpack yargs --save-dev`
   - Update your Webpack config settings to use the Express app.
   - Update your build scripts to output to dist/client instead of dist.
   - Create an SEO service to read from api/seo and update the title and meta tags on route changes.

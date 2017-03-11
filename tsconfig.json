@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "outDir": "./server/client/out-tsc",
+    "outDir": "./dist/client/out-tsc",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
