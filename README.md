@@ -31,6 +31,17 @@ This repository provides a pattern for adding SEO features to a SPA based applic
   - Create an SEO service to read from api/seo and update the title and meta tags on route changes.
   - Update the index.html so that it has `{{{body}}}` in the header. Handlebars will use this to inject the meta tags.
 
+## SEO Tweaking
+
+The SEO tags used in this project are the most common, but not a complete list. You may need to add or remove as necessary. Just remember to keep the index.handlebars and your seo.service.js in sync.
+
+## SEO Validators
+
+- [Facebook - Sharing Debugger](https://developers.facebook.com/tools/debug/)
+- [Google - Structured Data Testing Tool](https://search.google.com/structured-data/testing-tool)
+- [Twitter - Card Validator](https://cards-dev.twitter.com/validator)
+- LinkedIn - LinkedIn is pretty terrible for SEO developers. The only way you can check is through sharing directly and seeing the results. What is really frustrating is their aggressive caching policy. This means so you can't easily retest anything without waiting another week. It's best to test in the other three first and then you're likely to have it right. [LinkedIn](https://www.linkedin.com)
+
 ## Setup Heroku Project for Deployment
 
 [Heroku Node](https://devcenter.heroku.com/articles/getting-started-with-nodejs#deploy-the-app)
