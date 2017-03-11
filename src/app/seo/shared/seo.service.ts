@@ -14,7 +14,6 @@ export class SeoService {
       http.get('/api/seo').subscribe(seo => {
         const newSeo = seo.json();
         this.seoSource.next(newSeo);
-        this.createUpdateMeta('name', 'author', newSeo.author);
         this.createUpdateMeta('name', 'description', newSeo.description);
         this.createUpdateMeta('name', 'google-site-verification', newSeo.googleSiteVerification);
         this.createUpdateMeta('name', 'keywords', newSeo.keywords);
@@ -23,6 +22,8 @@ export class SeoService {
         this.createUpdateMeta('name', 'twitter:image', newSeo.image);
         this.createUpdateMeta('name', 'twitter:title', newSeo.title);
         this.createUpdateMeta('name', 'twitter:url', newSeo.url);
+        this.createUpdateMeta('property', 'article:author', newSeo.author);
+        this.createUpdateMeta('property', 'article:publisher', newSeo.url);
         this.createUpdateMeta('property', 'fb:app_id', newSeo.fbAppId);
         this.createUpdateMeta('property', 'og:description', newSeo.description);
         this.createUpdateMeta('property', 'og:image', newSeo.image);
