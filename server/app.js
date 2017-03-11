@@ -9,7 +9,7 @@ function initialize(app) {
         layoutsDir: __dirname,
         defaultLayout: __dirname + '/../client/index',
         extname: '.html'
-    }));    
+    }));
 
     app.set('view engine', 'handlebars');
     app.set('views', __dirname + '/views');

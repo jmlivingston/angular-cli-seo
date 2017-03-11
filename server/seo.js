@@ -9,17 +9,26 @@ function initialize(app) {
     });
 }
 
+function getUrl(req) {
+    let currentUrl = req.protocol + '://' + req.get('Host') + req.url;
+    if(currentUrl.indexOf('/api' !== -1) && req.headers.referer) {
+        currentUrl = req.headers.referer;
+    }
+    return currentUrl;
+}
+
 function getPath(req) {
-    let path = req.path.indexOf('/api/') !== -1 ? (req.headers.referer || req.path) : req.path;
-    return url.parse(path, true,  true).pathname.replace(/^\/|\/$/g, '');
+    const currentUrl = getUrl(req);
+    return url.parse(currentUrl, true,  true).pathname.replace(/^\/|\/$/g, '');
 }
 
 function getSeo(req, res) {
-    const baseUrl = req.protocol + '://' + req.headers.host;
+    const baseUrl = req.protocol + '://' + req.get('Host');
+    const currentUrl = getUrl(req);   
     const path = getPath(req);
-    const pathSeo = seoConfig[path] || {};
+    let pathSeo = Object.assign({}, seoConfig[path] || {});
     pathSeo.image = baseUrl + (pathSeo.image || seoConfig.default.image);
-    const urlSeo = { url:  baseUrl + '/' + path };
+    const urlSeo = { url:  currentUrl };
     return Object.assign({}, seoConfig.default, pathSeo, urlSeo);   
 }
 
