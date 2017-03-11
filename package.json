@@ -10,6 +10,7 @@
     "build-dev": "node ./build.js --clean && ./node_modules/.bin/webpack --config webpack-dev.config.js",
     "build-prod": "node ./build.js --clean && ./node_modules/.bin/webpack --config webpack-prod.config.js",
     "deploy": "git subtree push --prefix dist origin deploy",
+    "heroku-logs": "heroku logs --app angular-cli-seo --tail",
     "test": "karma start ./karma.conf.js",
     "lint": "ng lint",
     "e2e": "protractor ./protractor.conf.js",
